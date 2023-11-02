@@ -20,6 +20,197 @@
     <link rel="stylesheet" href="css/slicknav.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
+<style>
+    .navbar input[type="checkbox"],
+    .navbar .hamburger-lines{
+        display: none;
+    }
+    
+    .container{
+        max-width: 1200px;
+        width: 90%;
+        margin: auto;
+    }
+    
+    .navbar{
+        box-shadow: 0px 5px 10px 0px #aaa;
+        position: fixed;
+        width: 100%;
+        background: #fff;
+        color: #000;
+        opacity: 0.85;
+        z-index: 100;
+    }
+    
+    .navbar-container{
+        display: flex;
+        justify-content: space-between;
+        height: 64px;
+        align-items: center;
+    }
+    
+    .menu-items{
+        order: 2;
+        display: flex;
+    }
+    .logo{
+        order: 1;
+        font-size: 2.3rem;
+    }
+    
+    .menu-items li{
+        list-style: none;
+        margin-left: 1.5rem;
+        font-size: 1.3rem;
+    }
+    
+    .navbar a{
+        color: #444;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease-in-out;
+    }
+    
+    .navbar a:hover{
+        color: #117964;
+    }
+    
+    @media (max-width: 768px){
+        .navbar{
+            opacity: 0.95;
+        }
+    
+        .navbar-container input[type="checkbox"],
+        .navbar-container .hamburger-lines{
+            display: block;
+        }
+    
+        .navbar-container{
+            display: block;
+            position: relative;
+            height: 64px;
+        }
+    
+        .navbar-container input[type="checkbox"]{
+            position: absolute;
+            display: block;
+            height: 32px;
+            width: 30px;
+            top: 20px;
+            left: 20px;
+            z-index: 5;
+            opacity: 0;
+            cursor: pointer;
+        }
+    
+        .navbar-container .hamburger-lines{
+            display: block;
+            height: 28px;
+            width: 35px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    
+        .navbar-container .hamburger-lines .line{
+            display: block;
+            height: 4px;
+            width: 100%;
+            border-radius: 10px;
+            background: #333;
+        }
+        
+        .navbar-container .hamburger-lines .line1{
+            transform-origin: 0% 0%;
+            transition: transform 0.3s ease-in-out;
+        }
+    
+        .navbar-container .hamburger-lines .line2{
+            transition: transform 0.2s ease-in-out;
+        }
+    
+        .navbar-container .hamburger-lines .line3{
+            transform-origin: 0% 100%;
+            transition: transform 0.3s ease-in-out;
+        }
+    
+        .navbar .menu-items{
+            padding-top: 100px;
+            background: #fff;
+            height: 100vh;
+            max-width: 300px;
+            transform: translate(-150%);
+            display: flex;
+            flex-direction: column;
+            margin-left: -40px;
+            padding-left: 40px;
+            transition: transform 0.5s ease-in-out;
+            box-shadow:  5px 0px 10px 0px #aaa;
+            overflow: scroll;
+        }
+    
+        .navbar .menu-items li{
+            margin-bottom: 1.8rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+    
+        .logo{
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 2.5rem;
+        }
+    
+        .navbar-container input[type="checkbox"]:checked ~ .menu-items{
+            transform: translateX(0);
+        }
+    
+        .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line1{
+            transform: rotate(45deg);
+        }
+    
+        .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line2{
+            transform: scaleY(0);
+        }
+    
+        .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line3{
+            transform: rotate(-45deg);
+        }
+    
+    }
+    
+    @media (max-width: 500px){
+        .navbar-container input[type="checkbox"]:checked ~ .logo{
+            display: none;
+        }
+    }
+    .make-donate-button {
+        background-color: #117964;
+        color: #fff;
+        padding: 12px 24px;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+    }
+    
+    .make-donate-button:hover {
+        background-color: #ffffff;
+    }
+    
+    @media (max-width: 768px) {
+        .make-donate-button {
+            margin-top: 20px;
+        }
+    }
+    
+    </style>
 
 <body>
     <header>
@@ -54,7 +245,7 @@
                     </div>
                 </div>
             </div>
-            <div id="sticky-header" class="main-header-area">
+           <!-- <div id="sticky-header" class="main-header-area">
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-xl-3 col-lg-3">
@@ -91,7 +282,28 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
+            <nav class="navbar">
+                <div class="navbar-container container">
+                    
+                    <input type="checkbox" name="" id="">
+                    <div class="hamburger-lines">
+                        <span class="line line1"></span>
+                        <span class="line line2"></span>
+                        <span class="line line3"></span>
+                    </div>
+                    <ul class="menu-items">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="About.html">About</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="https://forms.gle/SXJN1KNB4CZGmKSaA">Volunteer</a></li>
+                        <li><a class="make-donate-button"href="https://rzp.io/l/eKIvycV">Make Donate</a></button>
+                        </li>
+                    </ul>
+                    <h1 class="logo">  <img src="img/LogoNgo.png" height="60px" width="60px" alt="" style="margin-left: 20px;"></h1>
+                </div>
+            </nav>
         </div>
     </header>
 
@@ -253,6 +465,85 @@
         <script src="js/mail-script.js"></script>
     
         <script src="js/main.js"></script>
+        <script>
+            function test(){
+        var tabsNewAnim = $('#navbarSupportedContent');
+        var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
+        var activeItemNewAnim = tabsNewAnim.find('.active');
+        var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
+        var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
+        var itemPosNewAnimTop = activeItemNewAnim.position();
+        var itemPosNewAnimLeft = activeItemNewAnim.position();
+        $(".hori-selector").css({
+            "top":itemPosNewAnimTop.top + "px", 
+            "left":itemPosNewAnimLeft.left + "px",
+            "height": activeWidthNewAnimHeight + "px",
+            "width": activeWidthNewAnimWidth + "px"
+        });
+        $("#navbarSupportedContent").on("click","li",function(e){
+            $('#navbarSupportedContent ul li').removeClass("active");
+            $(this).addClass('active');
+            var activeWidthNewAnimHeight = $(this).innerHeight();
+            var activeWidthNewAnimWidth = $(this).innerWidth();
+            var itemPosNewAnimTop = $(this).position();
+            var itemPosNewAnimLeft = $(this).position();
+            $(".hori-selector").css({
+                "top":itemPosNewAnimTop.top + "px", 
+                "left":itemPosNewAnimLeft.left + "px",
+                "height": activeWidthNewAnimHeight + "px",
+                "width": activeWidthNewAnimWidth + "px"
+            });
+        });
+    }
+    $(document).ready(function(){
+        setTimeout(function(){ test(); });
+    });
+    $(window).on('resize', function(){
+        setTimeout(function(){ test(); }, 500);
+    });
+    $(".navbar-toggler").click(function(){
+        $(".navbar-collapse").slideToggle(300);
+        setTimeout(function(){ test(); });
+    });
+    
+    
+    
+    // --------------add active class-on another-page move----------
+    jQuery(document).ready(function($){
+        // Get current path and find target link
+        var path = window.location.pathname.split("/").pop();
+    
+        // Account for home page with empty path
+        if ( path == '' ) {
+            path = 'index.html';
+        }
+    
+        var target = $('#navbarSupportedContent ul li a[href="'+path+'"]');
+        // Add active class to target link
+        target.parent().addClass('active');
+    });
+    
+    
+    
+    
+    // Add active class on another page linked
+    // ==========================================
+    // $(window).on('load',function () {
+    //     var current = location.pathname;
+    //     console.log(current);
+    //     $('#navbarSupportedContent ul li a').each(function(){
+    //         var $this = $(this);
+    //         // if the current path is like this link, make it active
+    //         if($this.attr('href').indexOf(current) !== -1){
+    //             $this.parent().addClass('active');
+    //             $this.parents('.menu-submenu').addClass('show-dropdown');
+    //             $this.parents('.menu-submenu').parent().addClass('active');
+    //         }else{
+    //             $this.parent().removeClass('active');
+    //         }
+    //     })
+    // });
+        </script>
         <script>
             $('#datepicker').datepicker({
                 iconsLibrary: 'fontawesome',
